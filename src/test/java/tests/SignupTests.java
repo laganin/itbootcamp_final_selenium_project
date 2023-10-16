@@ -22,4 +22,30 @@ public class SignupTests extends BasicTest {
         Assert.assertEquals(signupPage.passwordInput().getAttribute("type"), "password");
         Assert.assertEquals(signupPage.confirmPasswordInput().getAttribute("type"), "password");
     }
+
+    @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenUserAlreadyExists() {
+        String name = "Another User";
+        String email = "admin@admin.com";
+        String password = "12345";
+        String confirmPassword = "12345";
+        navPage.signupButton().click();
+        wait
+                .withMessage("URL does not contain /signup")
+                .until(ExpectedConditions.urlContains("/signup"));
+        signupPage.populateNameInput(name);
+        signupPage.populateEmailInput(email);
+        signupPage.populatePasswordInput(password);
+        signupPage.populateConfirmPasswordInput(confirmPassword);
+        signupPage.signupButton().click();
+        messagePopUpPage.waitForPopUpToBeVisible();
+        Assert.assertEquals(
+                messagePopUpPage.popUpMessage().getText(),
+                "E-mail already exists",
+                "The error message does not contain e-mail already exists"
+        );
+        wait
+                .withMessage("URL does not contain /signup")
+                .until(ExpectedConditions.urlContains("/signup"));
+    }
 }
