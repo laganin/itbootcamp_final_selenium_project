@@ -74,4 +74,10 @@ public class LoginTests extends BasicTest {
                 .withMessage("URL does not contain /home")
                 .until(ExpectedConditions.urlContains("/home"));
     }
+
+    @Test(priority = 6, retryAnalyzer = RetryAnalyzer.class)
+    public void logout() {
+        Assert.assertTrue(navPage.logoutLink().isDisplayed(), "Logout button not visible");
+        navPage.logoutLink().click();
+    }
 }
