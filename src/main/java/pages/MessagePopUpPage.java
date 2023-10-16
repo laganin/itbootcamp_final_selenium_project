@@ -14,7 +14,21 @@ public class MessagePopUpPage extends BasicPage {
     public void waitForPopUpToBeVisible() {
         wait
                 .withMessage("Pop up not visible")
-                .until(ExpectedConditions.visibilityOf(driver.findElement(By.className("v-snack__content"))));
+                .until(ExpectedConditions.visibilityOf(driver.findElement(By.className("v-snack--active"))));
+    }
+
+    public void waitForVerifyYourAccountDialogToBeVisible() {
+        wait
+                .withMessage("Verify your account dialog not visible")
+                .until(ExpectedConditions.visibilityOf(driver.findElement(By.className("v-dialog__content--active"))));
+    }
+
+    public WebElement verifyYourAccountDialogHeadline() {
+        return driver.findElement(By.className("dlgVerifyAccount"));
+    }
+
+    public WebElement closeVerifyAccountDialogButton() {
+        return driver.findElement(By.className("btnClose"));
     }
 
     public WebElement popUpMessage() {
