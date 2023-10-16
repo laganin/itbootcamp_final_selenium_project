@@ -41,4 +41,24 @@ public class LoginTests extends BasicTest {
                 .withMessage("URL does not contain /login")
                 .until(ExpectedConditions.urlContains("/login"));
     }
+
+    @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void displaysErrorsWhenPasswordIsWrong() {
+        String email = "admin@admin.com";
+        String password = "password123";
+        navPage.loginLink().click();
+        loginPage.emailInput().sendKeys(email);
+        loginPage.passwordInput().sendKeys(password);
+        loginPage.loginButton().click();
+        messagePopUpPage.waitForPopUpToBeVisible();
+        messagePopUpPage.waitForPopUpToBeVisible();
+        Assert.assertEquals(
+                messagePopUpPage.popUpMessage().getText(),
+                "Wrong password",
+                "The error message does not contain wrong password"
+        );
+        wait
+                .withMessage("URL does not contain /login")
+                .until(ExpectedConditions.urlContains("/login"));
+    }
 }
