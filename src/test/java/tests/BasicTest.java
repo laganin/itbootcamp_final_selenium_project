@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import pages.LoginPage;
+import pages.MessagePopUpPage;
 import pages.NavPage;
 
 import java.io.File;
@@ -26,6 +27,7 @@ public class BasicTest {
     protected String baseUrl = "https://vue-demo.daniel-avellaneda.com";
     protected NavPage navPage;
     protected LoginPage loginPage;
+    protected MessagePopUpPage messagePopUpPage;
 
     @BeforeClass
     public void setup() {
@@ -37,6 +39,7 @@ public class BasicTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         navPage = new NavPage(driver, wait);
         loginPage = new LoginPage(driver, wait);
+        messagePopUpPage = new MessagePopUpPage(driver, wait);
     }
 
     @BeforeMethod

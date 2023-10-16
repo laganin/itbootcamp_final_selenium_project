@@ -18,4 +18,7 @@ public class LoginPage extends BasicPage {
         return driver.findElement(By.id("password"));
     }
 
+    public WebElement loginButton() {
+        return driver.findElement(By.cssSelector("[type='submit']"));
+    }
 }
