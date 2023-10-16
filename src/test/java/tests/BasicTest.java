@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import pages.LoginPage;
 import pages.NavPage;
 
 import java.io.File;
@@ -24,6 +25,7 @@ public class BasicTest {
     protected WebDriverWait wait;
     protected String baseUrl = "https://vue-demo.daniel-avellaneda.com";
     protected NavPage navPage;
+    protected LoginPage loginPage;
 
     @BeforeClass
     public void setup() {
@@ -34,6 +36,7 @@ public class BasicTest {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         navPage = new NavPage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
     }
 
     @BeforeMethod
