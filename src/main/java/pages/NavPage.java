@@ -22,6 +22,14 @@ public class NavPage extends BasicPage {
         return driver.findElement(By.cssSelector("div.v-toolbar__items a[href='/signup']"));
     }
 
+    public WebElement adminLink() {
+        return driver.findElement(By.className("btnAdmin"));
+    }
+
+    public WebElement adminCitiesLink() {
+        return driver.findElement(By.className("btnAdminCities"));
+    }
+
     public WebElement languageSwitcherLink() {
         return driver.findElement(By.className("btnLocaleActivation"));
     }
