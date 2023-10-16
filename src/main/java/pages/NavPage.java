@@ -18,6 +18,10 @@ public class NavPage extends BasicPage {
         return driver.findElement(By.className("btnLogout"));
     }
 
+    public WebElement signupButton() {
+        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href='/signup']"));
+    }
+
     public WebElement languageSwitcherLink() {
         return driver.findElement(By.className("btnLocaleActivation"));
     }
