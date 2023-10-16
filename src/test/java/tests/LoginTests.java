@@ -61,4 +61,17 @@ public class LoginTests extends BasicTest {
                 .withMessage("URL does not contain /login")
                 .until(ExpectedConditions.urlContains("/login"));
     }
+
+    @Test(priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void login() {
+        String email = "admin@admin.com";
+        String password = "12345";
+        navPage.loginLink().click();
+        loginPage.emailInput().sendKeys(email);
+        loginPage.passwordInput().sendKeys(password);
+        loginPage.loginButton().click();
+        wait
+                .withMessage("URL does not contain /home")
+                .until(ExpectedConditions.urlContains("/home"));
+    }
 }
