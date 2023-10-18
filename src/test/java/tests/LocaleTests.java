@@ -48,4 +48,15 @@ public class LocaleTests extends BasicTest {
                 "Text Page d'atterrissage not present in header."
         );
     }
+
+    @Test(priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToUa() {
+        navPage.languageSwitcherLink().click();
+        navPage.ukrainianLanguageLink().click();
+        Assert.assertEquals(
+                landingPage.header().getText(),
+                "Лендінг",
+                "Text Лендінг not present in header."
+        );
+    }
 }

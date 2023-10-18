@@ -49,4 +49,8 @@ public class NavPage extends BasicPage {
     public WebElement frenchLanguageLink() {
         return driver.findElement(By.className("btnFR"));
     }
+
+    public WebElement ukrainianLanguageLink() {
+        return driver.findElement(By.className("btnUA"));
+    }
 }
