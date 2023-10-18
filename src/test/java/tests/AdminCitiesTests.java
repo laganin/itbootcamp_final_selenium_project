@@ -66,4 +66,17 @@ public class AdminCitiesTests extends BasicTest {
                 "The message does not contain saved successfully"
         );
     }
+
+    @Test(priority = 5, retryAnalyzer = RetryAnalyzer.class)
+    public void searchCity() {
+        String city = "Novi Sad edited";
+        navPage.adminLink().click();
+        navPage.adminCitiesLink().click();
+        citiesPage.searchInput().sendKeys(city);
+        citiesPage.visibilityOfTableRows(1);
+        Assert.assertTrue(
+                citiesPage.tableCellFromRow(1, 2).getText().contains(city),
+                "Name column does not equal " + city
+        );
+    }
 }

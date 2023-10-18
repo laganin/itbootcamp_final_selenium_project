@@ -54,4 +54,8 @@ public class CitiesPage extends BasicPage {
     public WebElement editButtonFromRow(int row) {
         return driver.findElements(By.cssSelector("tbody tr #edit")).get(row - 1);
     }
+
+    public WebElement tableCellFromRow(int row, int cell) {
+        return driver.findElements(By.cssSelector("tbody td")).get(cell - 4 + row * 4 - 1);
+    }
 }
