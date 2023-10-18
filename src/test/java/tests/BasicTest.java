@@ -28,6 +28,7 @@ public class BasicTest {
     protected MessagePopUpPage messagePopUpPage;
     protected SignupPage signupPage;
     protected CitiesPage citiesPage;
+    protected LandingPage landingPage;
 
     @BeforeClass
     public void setup() {
@@ -42,6 +43,7 @@ public class BasicTest {
         messagePopUpPage = new MessagePopUpPage(driver, wait);
         signupPage = new SignupPage(driver, wait);
         citiesPage = new CitiesPage(driver, wait);
+        landingPage = new LandingPage(driver, wait);
     }
 
     @BeforeMethod
