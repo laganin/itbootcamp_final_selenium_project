@@ -79,4 +79,25 @@ public class AdminCitiesTests extends BasicTest {
                 "Name column does not equal " + city
         );
     }
+
+    @Test(priority = 6, retryAnalyzer = RetryAnalyzer.class)
+    public void deleteCity() {
+        String city = "Novi Sad edited";
+        navPage.adminLink().click();
+        navPage.adminCitiesLink().click();
+        citiesPage.searchInput().sendKeys(city);
+        citiesPage.visibilityOfTableRows(1);
+        Assert.assertTrue(
+                citiesPage.tableCellFromRow(1, 2).getText().contains(city),
+                "Name column does not equal " + city
+        );
+        citiesPage.deleteButtonFromRow(1).click();
+        citiesPage.visibilityOfDeleteItemDialog();
+        citiesPage.deleteItemButton().click();
+        messagePopUpPage.waitForPopUpToBeVisible();
+        Assert.assertTrue(
+                messagePopUpPage.popUpMessageCitiesPage().getText().contains("Deleted successfully"),
+                "The message does not contain deleted successfully"
+        );
+    }
 }

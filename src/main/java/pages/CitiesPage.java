@@ -58,4 +58,18 @@ public class CitiesPage extends BasicPage {
     public WebElement tableCellFromRow(int row, int cell) {
         return driver.findElements(By.cssSelector("tbody td")).get(cell - 4 + row * 4 - 1);
     }
+
+    public WebElement deleteButtonFromRow(int row) {
+        return driver.findElements(By.cssSelector("tbody tr #delete")).get(row - 1);
+    }
+
+    public void visibilityOfDeleteItemDialog() {
+        wait
+                .withMessage("Delete item dialog not visible")
+                .until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("header.warning"))));
+    }
+
+    public WebElement deleteItemButton() {
+        return driver.findElement(By.cssSelector(".v-card__actions .red--text "));
+    }
 }
