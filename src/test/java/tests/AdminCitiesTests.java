@@ -48,4 +48,22 @@ public class AdminCitiesTests extends BasicTest {
                 "The message does not contain saved successfully"
         );
     }
+
+    @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void editCity() {
+        String oldCity = "Novi Sad";
+        String newCity = "Novi Sad edited";
+        navPage.adminLink().click();
+        navPage.adminCitiesLink().click();
+        citiesPage.searchInput().sendKeys(oldCity);
+        citiesPage.visibilityOfTableRows(1);
+        citiesPage.editButtonFromRow(1).click();
+        citiesPage.enterCityName(newCity);
+        citiesPage.saveNewItemButton().click();
+        messagePopUpPage.waitForPopUpToBeVisible();
+        Assert.assertTrue(
+                messagePopUpPage.popUpMessageCitiesPage().getText().contains("Saved successfully"),
+                "The message does not contain saved successfully"
+        );
+    }
 }
