@@ -15,4 +15,15 @@ public class LocaleTests extends BasicTest {
                 "Text Página de aterrizaje not present in header."
         );
     }
+
+    @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToEn() {
+        navPage.languageSwitcherLink().click();
+        navPage.englishLanguageLink().click();
+        Assert.assertEquals(
+                landingPage.header().getText(),
+                "Landing",
+                "Text Landing not present in header."
+        );
+    }
 }
