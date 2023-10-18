@@ -28,4 +28,12 @@ public class AuthRoutesTests extends BasicTest {
                 .withMessage("URL does not contain /login")
                 .until(ExpectedConditions.urlContains("/login"));
     }
+
+    @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void forbidsVisitsToAdminUsersUrlIfNotAuthenticated() {
+        driver.navigate().to(baseUrl + "/admin/users");
+        wait
+                .withMessage("URL does not contain /login")
+                .until(ExpectedConditions.urlContains("/login"));
+    }
 }
