@@ -37,4 +37,15 @@ public class LocaleTests extends BasicTest {
                 "Text 首页 not present in header."
         );
     }
+
+    @Test(priority = 4, retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToFr() {
+        navPage.languageSwitcherLink().click();
+        navPage.frenchLanguageLink().click();
+        Assert.assertEquals(
+                landingPage.header().getText(),
+                "Page d'atterrissage",
+                "Text Page d'atterrissage not present in header."
+        );
+    }
 }
