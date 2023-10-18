@@ -2,6 +2,7 @@ package tests;
 
 import helpers.RetryAnalyzer;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AdminCitiesTests extends BasicTest {
@@ -21,5 +22,14 @@ public class AdminCitiesTests extends BasicTest {
         wait
                 .withMessage("URL does not contain /admin/cities")
                 .until(ExpectedConditions.urlContains("/admin/cities"));
+    }
+
+    @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
+    public void checksInputTypesForCreateOrEditNewCity(){
+        navPage.adminLink().click();
+        navPage.adminCitiesLink().click();
+        citiesPage.newItemButton().click();
+        citiesPage.visibilityOfNewItemDialog();
+        Assert.assertEquals(citiesPage.newItemNameInput().getAttribute("type"), "text");
     }
 }

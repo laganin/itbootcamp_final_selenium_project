@@ -9,10 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import pages.LoginPage;
-import pages.MessagePopUpPage;
-import pages.NavPage;
-import pages.SignupPage;
+import pages.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +27,7 @@ public class BasicTest {
     protected LoginPage loginPage;
     protected MessagePopUpPage messagePopUpPage;
     protected SignupPage signupPage;
+    protected CitiesPage citiesPage;
 
     @BeforeClass
     public void setup() {
@@ -43,6 +41,7 @@ public class BasicTest {
         loginPage = new LoginPage(driver, wait);
         messagePopUpPage = new MessagePopUpPage(driver, wait);
         signupPage = new SignupPage(driver, wait);
+        citiesPage = new CitiesPage(driver, wait);
     }
 
     @BeforeMethod
