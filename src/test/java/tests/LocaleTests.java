@@ -26,4 +26,15 @@ public class LocaleTests extends BasicTest {
                 "Text Landing not present in header."
         );
     }
+
+    @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void setLocaleToCn() {
+        navPage.languageSwitcherLink().click();
+        navPage.chineseLanguageLink().click();
+        Assert.assertEquals(
+                landingPage.header().getText(),
+                "首页",
+                "Text 首页 not present in header."
+        );
+    }
 }
