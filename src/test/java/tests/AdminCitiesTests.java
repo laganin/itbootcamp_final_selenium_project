@@ -25,11 +25,27 @@ public class AdminCitiesTests extends BasicTest {
     }
 
     @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
-    public void checksInputTypesForCreateOrEditNewCity(){
+    public void checksInputTypesForCreateOrEditNewCity() {
         navPage.adminLink().click();
         navPage.adminCitiesLink().click();
         citiesPage.newItemButton().click();
         citiesPage.visibilityOfNewItemDialog();
         Assert.assertEquals(citiesPage.newItemNameInput().getAttribute("type"), "text");
+    }
+
+    @Test(priority = 3, retryAnalyzer = RetryAnalyzer.class)
+    public void createNewCity() {
+        String city = "Novi Sad";
+        navPage.adminLink().click();
+        navPage.adminCitiesLink().click();
+        citiesPage.newItemButton().click();
+        citiesPage.visibilityOfNewItemDialog();
+        citiesPage.newItemNameInput().sendKeys(city);
+        citiesPage.saveNewItemButton().click();
+        messagePopUpPage.waitForPopUpToBeVisible();
+        Assert.assertTrue(
+                messagePopUpPage.popUpMessageCitiesPage().getText().contains("Saved successfully"),
+                "The message does not contain saved successfully"
+        );
     }
 }

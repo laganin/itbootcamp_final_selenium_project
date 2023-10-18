@@ -25,4 +25,8 @@ public class CitiesPage extends BasicPage {
     public WebElement newItemNameInput() {
         return driver.findElement(By.id("name"));
     }
+
+    public WebElement saveNewItemButton() {
+        return driver.findElement(By.className("btnSave"));
+    }
 }
