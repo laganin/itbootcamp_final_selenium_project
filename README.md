@@ -8,12 +8,12 @@ framework for automating UI tests.
 
 The tests are categorized into the following sections:
 
-- [**Login Tests:**](itbootcamp_final_selenium_project/test_cases/TS_LOGIN_PAGE.md) Verify user login functionality
-- [**Signup Tests:**](itbootcamp_final_selenium_project/test_cases/TS_SIGN_UP_PAGE.md) Verify signup functionality
-- [**Admin Cities Tests:**](itbootcamp_final_selenium_project/test_cases/TS_ADMIN_CITIES_PAGE.md) Test edit and delete functionality for table with cities
-- [**Auth Routes Tests:**](itbootcamp_final_selenium_project/test_cases/TS_AUTH_ROUTES.md) Test route protection for unauthenticated user 
-- [**Locale Tests:**](itbootcamp_final_selenium_project/test_cases/TS_LOCALE.md) Test page content in different languages
-- [**Profile Tests:**](itbootcamp_final_selenium_project/test_cases/TS_PROFILE_PAGE.md) Test profile page form and functionality for editing a profile
+- [**Login Tests:**](test_cases/TS_LOGIN_PAGE.md) Verify user login functionality
+- [**Signup Tests:**](test_cases/TS_SIGN_UP_PAGE.md) Verify signup functionality
+- [**Admin Cities Tests:**](test_cases/TS_ADMIN_CITIES_PAGE.md) Test edit and delete functionality for table with cities
+- [**Auth Routes Tests:**](test_cases/TS_AUTH_ROUTES.md) Test route protection for unauthenticated user 
+- [**Locale Tests:**](test_cases/TS_LOCALE.md) Test page content in different languages
+- [**Profile Tests:**](test_cases/TS_PROFILE_PAGE.md) Test profile page form and functionality for editing a profile
 
 ## Prerequisites
 
