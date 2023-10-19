@@ -44,7 +44,7 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.saveNewItemButton().click();
         messagePopUpPage.waitForPopUpToBeVisible();
         Assert.assertTrue(
-                messagePopUpPage.popUpMessageCitiesAndProfilePage().getText().contains("Saved successfully"),
+                messagePopUpPage.popUpMessageCitiesPage().getText().contains("Saved successfully"),
                 "The message does not contain saved successfully"
         );
     }
@@ -62,7 +62,7 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.saveNewItemButton().click();
         messagePopUpPage.waitForPopUpToBeVisible();
         Assert.assertTrue(
-                messagePopUpPage.popUpMessageCitiesAndProfilePage().getText().contains("Saved successfully"),
+                messagePopUpPage.popUpMessageCitiesPage().getText().contains("Saved successfully"),
                 "The message does not contain saved successfully"
         );
     }
@@ -96,7 +96,7 @@ public class AdminCitiesTests extends BasicTest {
         citiesPage.deleteItemButton().click();
         messagePopUpPage.waitForPopUpToBeVisible();
         Assert.assertTrue(
-                messagePopUpPage.popUpMessageCitiesAndProfilePage().getText().contains("Deleted successfully"),
+                messagePopUpPage.popUpMessageCitiesPage().getText().contains("Deleted successfully"),
                 "The message does not contain deleted successfully"
         );
     }
