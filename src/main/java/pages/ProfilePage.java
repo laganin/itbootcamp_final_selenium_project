@@ -22,4 +22,28 @@ public class ProfilePage extends BasicPage {
                 .withMessage("Please wait dialog is still on the page")
                 .until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("v-dialog v-dialog--persistent")));
     }
+
+    public WebElement nameField() {
+        return driver.findElement(By.id("name"));
+    }
+
+    public WebElement cityField() {
+        return driver.findElement(By.id("city"));
+    }
+
+    public WebElement countryField() {
+        return driver.findElement(By.id("country"));
+    }
+
+    public WebElement urlTwitterField() {
+        return driver.findElement(By.id("urlTwitter"));
+    }
+
+    public WebElement urlGitHubField() {
+        return driver.findElement(By.id("urlGitHub"));
+    }
+
+    public WebElement phoneField() {
+        return driver.findElement(By.id("phone"));
+    }
 }
