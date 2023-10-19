@@ -35,7 +35,7 @@ public class MessagePopUpPage extends BasicPage {
         return driver.findElement(By.cssSelector("div.v-snack__content li"));
     }
 
-    public WebElement popUpMessageCitiesPage() {
+    public WebElement popUpMessageCitiesAndProfilePage() {
         return driver.findElement(By.cssSelector(".success .v-snack__content"));
     }
 
